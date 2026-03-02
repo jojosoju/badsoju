@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOSEPH KOH</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", monospace;
+  font-style: none;
+  font-size: 13px;
+  background: #ffffff;
+  color: #000000;
+}
+body, a {
+  cursor: crosshair !important;
+}
+
+.name h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-style: normal;
+  font-weight: 550;
+  font-size: 250%;
+  color: #000000;
+  letter-spacing: -1px;
+  transform: scaleX(0.97);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: "Times New Roman", monospace;
+  font-style: italic;
+  font-size: 13px;
+  color: #c2185b;
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 29%;
+  padding: 12px;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+}
+
+.sidebar-top {
+  flex-shrink: 0;
+}
+
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.name a:hover {
+  color: #b0688e;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.projects a {
+  display: block;
+  text-decoration: none;
+  font-family: "Times New Roman", monospace;
+  font-style: italic;
+  color: #c2185b;
+  margin-bottom: 3px;
+  transition: opacity 0.3s ease;
+}
+
+.projects a:hover {
+  opacity: 0.4;
+}
+
+.projects a.active {
+  opacity: 0.6;
+  color: #ed8ec1;
+}
+
+.features p {
+  font-family: "Times New Roman", monospace;
+  font-style: italic;
+  font-size: 11px;
+  color: #c2185b;
+  margin-bottom: 3px;
+}
+
+.sidebar-bottom {
+  font-family: "Times New Roman", monospace;
+  font-style: none;
+  font-size: 11px;
+  color: #c2185b;
+  line-height: 1.3;
+}
+.sidebar-bottom a {
+  color: #c2185b;
+  text-decoration: none; 
+  cursor: crosshair !important; 
+}
+
+.sidebar-bottom a:hover {
+  color: #ed8ec1;
+  opacity: 0.6;
+}
+
+/* MAIN CONTENT */
+.content {
+  margin-left: 50%;
+  width: 50%;
+  padding: 0;
+}
+
+.content img {
+  width: 80%;
+  margin-bottom: 8px;
+  display: block;
+}
+.content video {
+  width: 80%;
+  margin-bottom: 8px;
+  display: block;
+}
+
+
+.content.homepage-grid {
+  column-count: 2;
+  column-gap: 8px;
+}
+
+.content.homepage-grid img,
+.content.homepage-grid video {
+  width: 100%; 
+  margin-bottom: 8px;
+  break-inside: avoid;
+  object-fit: cover;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .content.homepage-grid {
+    column-count: 1;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="sidebar">
+
+  <div class="sidebar-top">
+    <div class="name">
+      <h1><a data-project="JOSEPH KOH">JOSEPH KOH</a></h1>
+    </div>
+  </div>
+
+  <div class="sidebar-scroll">
+    <h2><b>Work</b></h2>
+
+    <div class="projects">
+        <a data-project="VOGUE KOREA">VOGUE KOREA Louis Vuitton 2023</a>
+        <a data-project="National Gallery Singapore">National Gallery Singapore: Stories on the Bench</a>
+        <a data-project="F Zine Louis Vuitton 2024">F Zine Louis Vuitton 2024</a>
+        <a data-project="NUYOU Singapore 2024">NUYOU Singapore 2024</a>
+        <a data-project="F Zine 2023">F Zine 2023</a>
+        <a data-project="JF3 2025 Future Loundry RAGA">JF3 2025: Future Loundry RAGA</a>
+        <a data-project="AESYNCTX 2024 Fall Winter">AESYNCTX 2024 Fall/Winter</a>
+        <a data-project="Carhartt WIP x The Salvages DAZED & DISCO">Carhartt WIP x The Salvages DAZED & DISCO</a>
+        <a data-project="GATA Magazine Future Loundry">GATA Magazine Future Loundry</a>
+        <a data-project="Jain Kim 김자인 for Redbull">Jain Kim 김자인 for Redbull</a>
+        <a data-project="The BEUTER">The BEUTER</a>
+        <a data-project="You Want To Be Pure Again">You Want To Be Pure Again?</a>
+        <a data-project="SKINARMA">SKINARMA</a>
+        <a data-project="DAMNSEL">DAMNSEL</a>
+        <a data-project="Come Back Home for SAEMINUIM">Come Back Home for SAEMINUIM</a>
+        <a data-project="Clarks Originals X A for Arcade">Clarks Originals X A for Arcade</a>
+        <a data-project="Lisa Von Tang 2024">Lisa Von Tang 2024/2025</a>
+        <a data-project="4 Sided Flask Runway for Toyota Singapore">4 Sided Flask Runway for Toyota Singapore</a>
+        <a data-project="Self + Defense">Self + Defense</a>
+        <a data-project="Tokyo Analog">Tokyo Analog Magazine</a>
+        <a data-project="JF3 Deepscroll Healing">JF3 2024: Deepscroll Healing</a>
+        <a data-project="NAVERREALM">NAVERREALM</a>
+        <a data-project="Handsome Guy Omakase">Handsome Guy Omakase</a>
+        <a data-project="P O S T H U M A N S">P O S T H U M A N S</a>
+        <a data-project="Party of one">Party of one</a>
+        <a data-project="Tricia for Charles & Keith">Tricia for Charles & Keith</a>
+        <a data-project="take a look around when you're going down because you'll never feel so high">
+          take a look around when you're going down because you'll never feel so high
+        </a>
+        <a data-project="Plastic LOV3">Plastic LOV3</a>
+        <a data-project="All Your Secrets Safe With Me">All Your Secrets Safe With Me</a>
+        <a data-project="元素灵 EVA">元素灵 EVA</a>
+        <a data-project="Serena for Charles & Keith">Serena Jane for Charles & Keith</a>
+        <a data-project="PORCELAIN">PORCELAIN</a>
+        <a data-project="TRICIA AQUA TERRA">TRICIA for Omega</a>
+      </div>
+
+    <br><br>
+
+    <h2><b>Features</b></h2>
+
+    <div class="features">
+    <p>Sabukaru</p>
+        <p>VOGUE Singapore</p>
+        <p>RADII Media</p>
+        <p>Hypebeast</p>
+        <p>F ZINE Singapore</p>
+        <p>Tatler Hongkong</p>
+    </div>
+
+    <br><br>
+
+    <div class="projects">
+      <a data-project="Personal">Personal</a>
+    </div>
+  </div>
+
+  <div class="sidebar-bottom">
+    <br>
+    <a href="mailto:jkohyk@gmail.com">jkohyk@gmail.com</a><br>
+    <a href="https://www.instagram.com/badsoju/?hl=en" target="_blank">Instagram</a><br>
+    Singapore
+  </div>
+
+</div>
+
+  <div class="content" id="image-container"></div>
+
+</div>
+
+<script>
+
+const projects = {
+  "JOSEPH KOH": [
+    "Images/homepage images/VOGUE KOREA - 1.jpg",
+    "Images/homepage images/Plastic LOV3.mp4",
+    "Images/homepage images/All Your Secrets Safe With Me-1.jpg",
+    "Images/homepage images/4 Sided Flask Runway for Toyota Singapore-10.jpg",
+    "Images/homepage images/All Your Secrets Safe With Me-3.jpg",
+    "Images/homepage images/AESYNCTX 2024 Fall Winter-1.jpg",
+    "Images/homepage images/F Zine Louis Vuitton 2024 - 1.jpg",
+    "Images/homepage images/GATA Magazine Future Loundry - 8.jpg",
+    "Images/homepage images/All Your Secrets Safe With Me-6.jpg",
+    "Images/homepage images/JF3 2025 Future Loundry RAGA.mov",
+    "Images/homepage images/元素灵 EVA-1.jpg",
+    "Images/homepage images/P O S T H U M A N S-1.jpg",
+    "Images/homepage images/JF3 Deepscroll Healing - 1.jpg",
+    "Images/homepage images/TRICIA AQUA TERRA-1.jpg",
+    "Images/homepage images/元素灵 EVA-3.jpg",
+    "Images/homepage images/National Gallery Singapore - 1.jpg",
+    "Images/homepage images/All Your Secrets Safe With Me-2.jpg",
+    "Images/homepage images/SKINARMA-1.jpg",
+    "Images/homepage images/NUYOU Singapore 2024 - 1.jpg",
+    "Images/homepage images/4 Sided Flask Runway for Toyota Singapore-2.mp4",
+    "Images/homepage images/Plastic LOV3-2.jpg",
+    "Images/homepage images/STRENGTH X POWER - 2.jpg",
+    "Images/homepage images/The BEUTER-1.jpg",
+    "Images/homepage images/Tokyo Analog-3.jpg",
+    "Images/homepage images/TRICIA AQUA TERRA-2.jpg",
+    "Images/homepage images/VOGUE KOREA - 8.jpg",
+    "Images/homepage images/You Want To Be Pure Again - 1.jpg",
+    "Images/homepage images/You Want To Be Pure Again - 2.jpg",
+    
+  ],
+  
+  "VOGUE KOREA": [
+    "Images/VOGUE KOREA/VOGUE KOREA - 1.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 2.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 3.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 4.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 5.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 6.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 7.jpg",
+    "Images/VOGUE KOREA/VOGUE KOREA - 8.jpg"
+  ],
+  "Come Back Home for SAEMINUIM": [
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-1.jpg",
+    "Images/Come Back Home for SAEMINUIM/fear is the mind killer.mp4",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-2.jpg",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-3.jpg",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-4.jpg",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-5.jpg",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-6.jpg",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-7.jpg",
+    "Images/Come Back Home for SAEMINUIM/Come Back Home for SAEMINUIM-8.jpg"
+  ],
+  "4 Sided Flask Runway for Toyota Singapore": [
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-1.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-2.mp4",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-3.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-4.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-5.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-6.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-7.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-8.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-9.jpg",
+    "Images/4 Sided Flask Runway for Toyota Singapore/4 Sided Flask Runway for Toyota Singapore-10.jpg"
+  ],
+  "Jain Kim 김자인 for Redbull": [
+    "Images/Jain Kim 김자인 for Redbull/Jain Kim 김자인 for Redbull-1.jpg",
+    "Images/Jain Kim 김자인 for Redbull/Jain Kim 김자인 for Redbull-2.jpg",
+  ],
+  "F Zine 2023": [
+    "Images/F Zine 2023/F Zine 2023-1.jpg",
+    "Images/F Zine 2023/F Zine 2023-2.jpg",
+    "Images/F Zine 2023/F Zine 2023-3.jpg",
+    "Images/F Zine 2023/F Zine 2023-5.jpg",
+    "Images/F Zine 2023/F Zine 2023-6.jpg",
+    "Images/F Zine 2023/F Zine 2023-7.jpg"
+  ],
+  "F Zine Louis Vuitton 2024": [
+    "Images/F Zine Louis Vuitton 2024/F Zine Louis Vuitton 2024 - 1.jpg",
+    "Images/F Zine Louis Vuitton 2024/F Zine Louis Vuitton 2024 - 2.jpg",
+    "Images/F Zine Louis Vuitton 2024/F Zine Louis Vuitton 2024 - 3.jpg",
+    "Images/F Zine Louis Vuitton 2024/F Zine Louis Vuitton 2024 - 4.jpg",
+    "Images/F Zine Louis Vuitton 2024/F Zine Louis Vuitton 2024 - 5.jpg",
+    "Images/F Zine Louis Vuitton 2024/F Zine Louis Vuitton 2024 - 6.jpg"
+  ],
+  "Tricia for Charles & Keith": [
+    "Images/Tricia for Charles & Keith/Tricia for Charles & Keith-1.jpg",
+    "Images/Tricia for Charles & Keith/Tricia for Charles & Keith-2.jpg",
+    "Images/Tricia for Charles & Keith/Tricia for Charles & Keith-3.jpg",
+    "Images/Tricia for Charles & Keith/Tricia for Charles & Keith-4.jpg",
+    "Images/Tricia for Charles & Keith/Tricia for Charles & Keith-5.jpg"
+  ],
+  "Lisa Von Tang 2024": [
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-1.jpg",
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-2.jpg",
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-3.jpg",
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-4.jpg",
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-5.jpg",
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-6.jpg",
+    "Images/Lisa Von Tang 2024/Lisa Von Tang 2024-7.jpg"
+  ],
+  "NAVERREALM": [
+    "Images/NAVERREALM/NAVERREALM-1.jpg",
+    "Images/NAVERREALM/NAVERREALM-2.jpg",
+    "Images/NAVERREALM/NAVERREALM-3.jpg",
+    "Images/NAVERREALM/NAVERREALM-4.jpg",
+    "Images/NAVERREALM/NAVERREALM-5.jpg",
+    "Images/NAVERREALM/NAVERREALM-6.jpg",
+    "Images/NAVERREALM/NAVERREALM-7.jpg",
+    "Images/NAVERREALM/NAVERREALM-8.jpg",
+  ],
+  "JF3 2025 Future Loundry RAGA": [
+    "Images/JF3 2025 Future Loundry RAGA/JF3 2025 Future Loundry RAGA.mov",
+    "Images/JF3 2025 Future Loundry RAGA/JF3 2025 Future Loundry RAGA-1.jpg",
+  ],
+  "DAMNSEL": [
+    "Images/DAMNSEL/DAMNSEL-1.jpg",
+    "Images/DAMNSEL/spirited DAMNSEL.jpg",
+    "Images/DAMNSEL/DAMNSEL-2.jpg",
+    "Images/DAMNSEL/DAMNSEL-3.jpg",
+    "Images/DAMNSEL/DAMNSEL-4.jpg",
+    "Images/DAMNSEL/DAMNSEL-5.jpg",
+    "Images/DAMNSEL/DAMNSEL-6.jpg",
+    "Images/DAMNSEL/DAMNSEL-7.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 3.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 4.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 1.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 2.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 5.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 6.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 7.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 8.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 9.jpg",
+    "Images/STRENGTH X POWER/STRENGTH X POWER - 10.jpg"
+  ],
+  "Handsome Guy Omakase": [
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-1.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-2.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-3.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-4.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-5.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-6.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-7.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-8.jpg",
+    "Images/Handsome Guy Omakase/Handsome Guy Omakase-9.jpg"
+  ],
+  "SKINARMA": [
+    "Images/SKINARMA/SKINARMA-1.jpg",
+    "Images/SKINARMA/SKINARMA-2.mov",
+    "Images/SKINARMA/SKINARMA-3.jpg",
+    "Images/SKINARMA/SKINARMA-4.jpg",
+    "Images/SKINARMA/SKINARMA-5.mov",
+    "Images/SKINARMA/SKINARMA-7.jpg",
+    "Images/SKINARMA/SKINARMA-6.jpg",
+    "Images/SKINARMA/SKINARMA-8.jpg",
+    "Images/SKINARMA/SKINARMA-9.jpg",
+    "Images/SKINARMA/SKINARMA-10.jpg",
+    "Images/SKINARMA/SKINARMA-11.jpg",
+    "Images/SKINARMA/SKINARMA-12.mov"
+  ],
+
+  "NUYOU Singapore 2024": [
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 1.jpg",
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 2.jpg",
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 3.jpg",
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 4.jpg",
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 5.jpg",
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 6.jpg",
+    "Images/NUYOU Singapore 2024/NUYOU Singapore 2024 - 7.jpg"
+  ],
+  "JF3 Deepscroll Healing": [
+    "Images/JF3 Deepscroll Healing/JF3 Deepscroll Healing - 1.jpg"
+  ],
+  "Clarks Originals X A for Arcade": [
+    "Images/Clarks Originals X A for Arcade/Clarks Originals X A for Arcade-1.jpg",
+    "Images/Clarks Originals X A for Arcade/Clarks Originals X A for Arcade-2.jpg",
+    "Images/Clarks Originals X A for Arcade/Clarks Originals X A for Arcade-3.jpg",
+    "Images/Clarks Originals X A for Arcade/Clarks Originals X A for Arcade-4.jpg",
+    "Images/Clarks Originals X A for Arcade/Clarks Originals X A for Arcade-5.jpg",
+    "Images/Clarks Originals X A for Arcade/Clarks Originals X A for Arcade-6.jpg",
+  ],
+  "AESYNCTX 2024 Fall Winter": [
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-1.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-2.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-3.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-4.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-5.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-6.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-7.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-8.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-9.jpg",
+    "Images/AESYNCTX 2024 Fall Winter/AESYNCTX 2024 Fall Winter-10.jpg"
+  ],
+
+  "Party of one": [
+    "Images/Party of one/Party of one - 1.jpg",
+    "Images/Party of one/Party of one - 2.jpg",
+    "Images/Party of one/Party of one - 3.jpg",
+    "Images/Party of one/Party of one - 5.jpg",
+    "Images/Party of one/Party of one - 6.jpg",
+    "Images/Party of one/Party of one - 7.jpg",
+    "Images/Party of one/Party of one - 8.jpg",
+    "Images/Party of one/Party of one - 9.jpg"
+  ],
+
+  "PORCELAIN": [
+    "Images/PORCELAIN/PORCELAIN.mp4",
+    "Images/PORCELAIN/PORCELAIN-1.jpg",
+    "Images/PORCELAIN/PORCELAIN-3.jpg",
+    "Images/PORCELAIN/PORCELAIN-4.jpg",
+    "Images/PORCELAIN/PORCELAIN-5.jpg",
+    "Images/PORCELAIN/PORCELAIN-6.jpg",
+    "Images/PORCELAIN/PORCELAIN-7.jpg",
+  ],
+  "Carhartt WIP x The Salvages DAZED & DISCO": [
+    "Images/Carhartt WIP x The Salvages DAZED & DISCO/Carhartt WIP x The Salvages DAZED & DISCO-1.jpg",
+    "Images/Carhartt WIP x The Salvages DAZED & DISCO/Carhartt WIP x The Salvages DAZED & DISCO-2.jpg",
+    "Images/Carhartt WIP x The Salvages DAZED & DISCO/Carhartt WIP x The Salvages DAZED & DISCO-3.jpg"
+  ],
+  "Self + Defense": [
+    "Images/Self + Defense/Self + Defense-1.jpg",
+    "Images/Self + Defense/Self + Defense-2.jpg",
+    "Images/Self + Defense/Self + Defense-3.jpg",
+    "Images/Self + Defense/Self + Defense-4.jpg",
+    "Images/Self + Defense/Self + Defense-5.jpg",
+    "Images/Self + Defense/Self + Defense-6.jpg",
+    "Images/Self + Defense/Self + Defense-7.jpg",
+    "Images/Self + Defense/Self + Defense-8.jpg",
+    "Images/Self + Defense/Self + Defense-9.jpg",
+    "Images/Self + Defense/Self + Defense-10.jpg",
+    "Images/Self + Defense/Self + Defense-11.jpg",
+    "Images/Self + Defense/Self + Defense-12.jpg",
+    "Images/Self + Defense/Self + Defense-13.jpg",
+    "Images/Self + Defense/Self + Defense-14.jpg",
+  ],
+
+  "Plastic LOV3": [
+    "Images/Plastic LOV3/Plastic LOV3.mp4",
+    "Images/Plastic LOV3/Plastic LOV3-1.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-2.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-3.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-4.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-5.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-6.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-7.jpg",
+    "Images/Plastic LOV3/Plastic LOV3-8.jpg"
+  ],
+  "Serena for Charles & Keith": [
+    "Images/Serena for Charles & Keith/Serena for Charles & Keith-1.jpg",
+    "Images/Serena for Charles & Keith/Serena for Charles & Keith-2.jpg",
+    "Images/Serena for Charles & Keith/Serena for Charles & Keith-3.jpg",
+    "Images/Serena for Charles & Keith/Serena for Charles & Keith-4.jpg",
+  ],
+  "All Your Secrets Safe With Me": [
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-1.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-2.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-3.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-4.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-5.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-6.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-7.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-8.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-9.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-10.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-11.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-12.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-13.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-14.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-15.jpg",
+    "Images/All Your Secrets Safe With Me/All Your Secrets Safe With Me-16.jpg"
+  ],
+  "元素灵 EVA": [
+   "Images/元素灵 EVA/元素灵 EVA-1.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-2.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-3.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-4.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-5.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-6.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-7.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-8.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-9.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-10.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-11.jpg",
+   "Images/元素灵 EVA/元素灵 EVA-12.jpg"
+  ],
+
+
+  "GATA Magazine Future Loundry": [
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 2.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 1.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 3.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 4.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 5.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 6.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 7.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 8.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 9.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 10.jpg",
+    "Images/GATA Magazine Future Loundry/GATA Magazine Future Loundry - 11.jpg"
+  ],
+  "The BEUTER": [
+    "Images/The BEUTER/The BEUTER-1.jpg"
+  ],
+  "National Gallery Singapore": [
+    "Images/National Gallery Singapore/National Gallery Singapore - 1.jpg",
+    "Images/National Gallery Singapore/National Gallery Singapore - 2.jpg",
+    "Images/National Gallery Singapore/National Gallery Singapore - 3.jpg",
+    "Images/National Gallery Singapore/National Gallery Singapore - 4.jpg",
+    "Images/National Gallery Singapore/National Gallery Singapore - 5.jpg"
+  ],
+  "take a look around when you're going down because you'll never feel so high": [
+    "Images/take a look around when you're going down because you'll never feel so high/2.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/3.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/4.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/5.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/6.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/7.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/8.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/9.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/10.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/11.jpg",
+    "Images/take a look around when you're going down because you'll never feel so high/12.jpg"
+  ],
+  "You Want To Be Pure Again": [
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 1.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 2.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 3.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 4.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 5.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 6.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 7.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 8.jpg",
+    "Images/You Want To Be Pure Again/You Want To Be Pure Again - 9.jpg"
+  ],
+  "P O S T H U M A N S": [
+    "Images/P O S T H U M A N S/P O S T H U M A N S-1.jpg",
+    "Images/P O S T H U M A N S/natureisnotcreatedintheimageofmanscompassion.mp4"
+  ],
+  "Tokyo Analog": [
+    "Images/Tokyo Analog/Tokyo Analog-1.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-2.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-3.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-4.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-5.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-6.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-7.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-8.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-9.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-10.jpg"
+  ],
+
+  "TRICIA AQUA TERRA": [
+    "Images/TRICIA AQUA TERRA/TRICIA AQUA TERRA-1.jpg",
+    "Images/TRICIA AQUA TERRA/TRICIA AQUA TERRA-2.jpg",
+    "Images/TRICIA AQUA TERRA/TRICIA AQUA TERRA-3.jpg",
+    "Images/TRICIA AQUA TERRA/TRICIA AQUA TERRA-4.jpg",
+    "Images/TRICIA AQUA TERRA/TRICIA AQUA TERRA-5.jpg",
+    "Images/TRICIA AQUA TERRA/TRICIA AQUA TERRA-6.jpg",
+  ],
+  "Personal": [
+    "Images/Personal/Personal-1.jpg"
+  ]
+
+};
+
+// SELECT ALL PROJECT LINKS AND THE CONTAINER
+const links = document.querySelectorAll('.projects a, .name a');
+const container = document.getElementById('image-container');
+
+// FUNCTION TO DISPLAY PROJECT CONTENT
+function showProject(projectName) {
+  if (!projects[projectName]) return;
+
+  container.innerHTML = "";
+
+  // Toggle homepage grid for main page
+  if (projectName === "JOSEPH KOH" || projectName === "DAMNSEL" || projectName === "All Your Secrets Safe With Me" || projectName === "SKINARMA") {
+  container.classList.add("homepage-grid");
+} else {
+  container.classList.remove("homepage-grid");
+}
+
+  projects[projectName].forEach(src => {
+    if (src.endsWith(".mp4") || src.endsWith(".mov")) {
+      // Create video element
+      const video = document.createElement("video");
+      video.src = src;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      container.appendChild(video);
+    } else {
+      // Create image element
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = src.split("/").pop();
+      container.appendChild(img);
+    }
+  });
+
+  // update active link highlight
+  setActiveLink(projectName);
+}
+
+// FUNCTION TO HIGHLIGHT THE ACTIVE LINK
+function setActiveLink(projectName) {
+  links.forEach(link => {
+    link.classList.toggle('active', link.dataset.project === projectName);
+  });
+}
+
+// ADD CLICK EVENT LISTENERS TO ALL LINKS
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    showProject(link.dataset.project);
+  });
+});
+
+// SHOW HOMEPAGE BY DEFAULT
+showProject("JOSEPH KOH");
+</script>
+
+</body>
+</html>
