@@ -617,7 +617,12 @@ const projects = {
     "Images/Tokyo Analog/Tokyo Analog-7.jpg",
     "Images/Tokyo Analog/Tokyo Analog-8.jpg",
     "Images/Tokyo Analog/Tokyo Analog-9.jpg",
-    "Images/Tokyo Analog/Tokyo Analog-10.jpg"
+    "Images/Tokyo Analog/Tokyo Analog-10.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-11.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-12.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-13.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-14.jpg",
+    "Images/Tokyo Analog/Tokyo Analog-15.jpg",
   ],
 
   "TRICIA AQUA TERRA": [
@@ -645,7 +650,12 @@ function showProject(projectName) {
   container.innerHTML = "";
 
   // Toggle homepage grid for main page
-  if (projectName === "JOSEPH KOH" || projectName === "DAMNSEL" || projectName === "All Your Secrets Safe With Me" || projectName === "SKINARMA") {
+  if (projectName === "JOSEPH KOH" || projectName === "DAMNSEL" 
+  || projectName === "All Your Secrets Safe With Me" 
+  || projectName === "SKINARMA"
+  || projectName === "Tokyo Analog"
+
+) {
   container.classList.add("homepage-grid");
 } else {
   container.classList.remove("homepage-grid");
@@ -690,6 +700,13 @@ links.forEach(link => {
 
 // SHOW HOMEPAGE BY DEFAULT
 showProject("JOSEPH KOH");
+
+document.addEventListener("contextmenu", function(e) {
+  if (e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
+
 </script>
 
 </body>
