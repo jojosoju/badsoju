@@ -239,6 +239,26 @@ h2 {
   display: block;
 }
 
+/* SMOOTH LOADING: reserve space, soft placeholder, fade in when ready */
+.content img,
+.content video {
+  height: auto;
+  background: #f3f3f3;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.content img.loaded,
+.content video.loaded {
+  opacity: 1;
+  background: transparent;
+}
+.content {
+  transition: opacity 0.25s ease;
+}
+.content.switching {
+  opacity: 0;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .content.homepage-grid {
@@ -349,6 +369,7 @@ h2 {
 
 </div>
 
+<script src="media-sizes.js"></script>
 <script>
 
 const projects = {
@@ -630,8 +651,8 @@ const projects = {
     "Images/PORCELAIN/PORCELAIN-1.jpg",
     "Images/PORCELAIN/PORCELAIN-6.jpg",
     "Images/PORCELAIN/PORCELAIN-3.jpg",
-    "Images/PORCELAIN/swan to secrecy-1",
-    "Images/PORCELAIN/swan to secrecy-2",
+    "Images/PORCELAIN/swan to secrecy-1.jpg",
+    "Images/PORCELAIN/swan to secrecy-2.jpg",
     "Images/PORCELAIN/PORCELAIN-4.jpg",
     "Images/PORCELAIN/PORCELAIN-5.jpg",
     "Images/PORCELAIN/PORCELAIN-7.jpg",
@@ -801,10 +822,71 @@ setTimeout(() => {
 const links = document.querySelectorAll('.projects a, .name a');
 const container = document.getElementById('image-container');
 
+// IMAGE/VIDEO SIZES (from media-sizes.js) SO SPACE IS RESERVED BEFORE LOADING
+const mediaSizes = {};
+Object.entries(window.MEDIA_SIZES || {}).forEach(([path, size]) => {
+  mediaSizes[path.normalize("NFC")] = size;
+});
+
+function reserveSpace(el, src) {
+  const size = mediaSizes[src.normalize("NFC")];
+  if (size) {
+    el.width = size[0];
+    el.height = size[1];
+    el.style.aspectRatio = size[0] + " / " + size[1];
+  }
+}
+
+function markLoaded(el) {
+  el.classList.add("loaded");
+}
+
+// VIDEOS ONLY DOWNLOAD WHEN NEAR THE SCREEN, AND ONLY PLAY WHILE VISIBLE
+const videoObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      if (!video.src) {
+        video.src = video.dataset.src;
+      }
+      video.play().catch(() => {});
+    } else if (video.src) {
+      video.pause();
+    }
+  });
+}, { rootMargin: "300px 0px" });
+
+const IS_VIDEO = src => /\.(mp4|mov)$/i.test(src);
+let switchTimer = null;
+
 // FUNCTION TO DISPLAY PROJECT CONTENT
-function showProject(projectName) {
+function showProject(projectName, instant) {
   if (!projects[projectName]) return;
 
+  // update active link highlight right away
+  setActiveLink(projectName);
+
+  // quick fade out, swap content, fade back in
+  clearTimeout(switchTimer);
+  if (instant) {
+    renderProject(projectName);
+  } else {
+    container.classList.add("switching");
+    switchTimer = setTimeout(() => {
+      renderProject(projectName);
+      window.scrollTo(0, 0);
+      container.classList.remove("switching");
+    }, 200);
+  }
+}
+
+function renderProject(projectName) {
+  container.querySelectorAll("video").forEach(video => {
+    videoObserver.unobserve(video);
+    video.pause();
+    video.removeAttribute("src");
+    video.load(); // stops any download still in progress
+  });
   container.innerHTML = "";
 
   // Toggle homepage grid for main page
@@ -819,27 +901,51 @@ function showProject(projectName) {
   container.classList.remove("homepage-grid");
 }
 
-  projects[projectName].forEach(src => {
-    if (src.endsWith(".mp4") || src.endsWith(".mov")) {
-      // Create video element
+  projects[projectName].forEach((src, i) => {
+    if (IS_VIDEO(src)) {
+      // Create video element (source is attached once it scrolls near the screen)
       const video = document.createElement("video");
-      video.src = src;
+      video.dataset.src = src;
       video.autoplay = true;
       video.loop = true;
       video.muted = true;
       video.playsInline = true;
+      video.preload = "auto";
+      reserveSpace(video, src);
+      video.addEventListener("loadeddata", () => markLoaded(video), { once: true });
+      video.addEventListener("error", () => markLoaded(video), { once: true });
       container.appendChild(video);
+      videoObserver.observe(video);
     } else {
       // Create image element
       const img = document.createElement("img");
-      img.src = src;
       img.alt = src.split("/").pop();
+      img.decoding = "async";
+      // first few load immediately, the rest as you scroll
+      if (i < 4) {
+        img.fetchPriority = "high";
+      } else {
+        img.loading = "lazy";
+      }
+      reserveSpace(img, src);
+      img.addEventListener("load", () => markLoaded(img), { once: true });
+      img.addEventListener("error", () => markLoaded(img), { once: true });
+      img.src = src;
+      if (img.complete && img.naturalWidth) markLoaded(img);
       container.appendChild(img);
     }
   });
+}
 
-  // update active link highlight
-  setActiveLink(projectName);
+// WARM UP A PROJECT'S FIRST IMAGES WHEN HOVERING ITS LINK
+const warmed = new Set();
+function warmProject(projectName) {
+  if (warmed.has(projectName) || !projects[projectName]) return;
+  warmed.add(projectName);
+  projects[projectName]
+    .filter(src => !IS_VIDEO(src))
+    .slice(0, 4)
+    .forEach(src => { new Image().src = src; });
 }
 
 // FUNCTION TO HIGHLIGHT THE ACTIVE LINK
@@ -854,10 +960,13 @@ links.forEach(link => {
   link.addEventListener("click", () => {
     showProject(link.dataset.project);
   });
+  link.addEventListener("mouseenter", () => {
+    warmProject(link.dataset.project);
+  });
 });
 
 // SHOW HOMEPAGE BY DEFAULT
-showProject("JOSEPH KOH");
+showProject("JOSEPH KOH", true);
 
 document.addEventListener("contextmenu", function(e) {
   if (e.target.tagName === "IMG") {
